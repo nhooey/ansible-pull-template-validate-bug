@@ -1,0 +1,15 @@
+---
+
+- hosts: localhost
+
+  tasks:
+    - name: Delete template file
+      file:
+        path: /tmp/file
+        state: absent
+
+    - name: Test template validation
+      template:
+        src: file
+        dest: /tmp/file
+        validate: 'ls %s'
